@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.TelaFinanceiroController">
+    <top>
+        <Label text="Financeiro - Contas a Pagar e Receber" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="15">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <children>
+                    <Label text="Resumo Financeiro" styleClass="rotulo"/>
+
+                    <HBox spacing="30">
+                        <children>
+                            <VBox alignment="CENTER">
+                                <Label text="A Receber (Pendente)" styleClass="rotulo"/>
+                                <Label fx:id="lblTotalReceber" text="R$ 0,00" styleClass="valor"/>
+                            </VBox>
+                            <VBox alignment="CENTER">
+                                <Label text="A Pagar (Pendente)" styleClass="rotulo"/>
+                                <Label fx:id="lblTotalPagar" text="R$ 0,00" styleClass="valor"/>
+                            </VBox>
+                        </children>
+                    </HBox>
+
+                    <Separator/>
+
+                    <Label text="Nova Conta a Receber" styleClass="rotulo"/>
+
+                    <GridPane hgap="10" vgap="10">
+                        <children>
+                            <Label text="Cliente"/>
+                            <ComboBox fx:id="cmbClienteReceber" GridPane.columnIndex="1"/>
+
+                            <Label text="Descrição" GridPane.rowIndex="1"/>
+                            <TextField fx:id="txtDescricaoReceber" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                       promptText="Ex: Venda nº 123"/>
+
+                            <Label text="Valor" GridPane.rowIndex="2"/>
+                            <TextField fx:id="txtValorReceber" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                       promptText="0,00"/>
+
+                            <Label text="Vencimento" GridPane.rowIndex="3"/>
+                            <DatePicker fx:id="dtVencimentoReceber" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Button fx:id="btnCadastrarReceber" text="Cadastrar Receber"
+                                    onAction="#handleCadastrarReceber" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                                    maxWidth="Infinity"/>
+                        </children>
+                    </GridPane>
+
+                    <Separator/>
+
+                    <Label text="Nova Conta a Pagar" styleClass="rotulo"/>
+
+                    <GridPane hgap="10" vgap="10">
+                        <children>
+                            <Label text="Fornecedor"/>
+                            <ComboBox fx:id="cmbFornecedorPagar" GridPane.columnIndex="1"/>
+
+                            <Label text="Descrição" GridPane.rowIndex="1"/>
+                            <TextField fx:id="txtDescricaoPagar" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                       promptText="Ex: Compra nº 456"/>
+
+                            <Label text="Valor" GridPane.rowIndex="2"/>
+                            <TextField fx:id="txtValorPagar" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                       promptText="0,00"/>
+
+                            <Label text="Vencimento" GridPane.rowIndex="3"/>
+                            <DatePicker fx:id="dtVencimentoPagar" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Button fx:id="btnCadastrarPagar" text="Cadastrar Pagar"
+                                    onAction="#handleCadastrarPagar" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                                    maxWidth="Infinity"/>
+                        </children>
+                    </GridPane>
+
+                    <Separator/>
+
+                    <Label text="Contas a Receber" styleClass="rotulo"/>
+                    <TableView fx:id="tabelaReceber">
+                        <columns>
+                            <TableColumn text="Cliente" prefWidth="150">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="cliente" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Descrição" prefWidth="200">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="descricao" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Valor" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="valor" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Vencimento" prefWidth="120">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="vencimento" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Status" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="status" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+
+                    <Label text="Contas a Pagar" styleClass="rotulo"/>
+                    <TableView fx:id="tabelaPagar">
+                        <columns>
+                            <TableColumn text="Fornecedor" prefWidth="150">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="fornecedor" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Descrição" prefWidth="200">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="descricao" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Valor" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="valor" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Vencimento" prefWidth="120">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="vencimento" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Status" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="status" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10">
+                        <children>
+                            <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

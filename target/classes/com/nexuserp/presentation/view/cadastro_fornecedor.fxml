@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.CadastroFornecedorController">
+    <top>
+        <Label text="Cadastro de Fornecedor" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <VBox spacing="15" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <children>
+                <Label text="Razão Social"/>
+                <TextField fx:id="txtRazaoSocial" maxWidth="Infinity"/>
+
+                <Label text="CNPJ"/>
+                <TextField fx:id="txtCnpj" maxWidth="Infinity"/>
+
+                <Label text="Contato"/>
+                <TextField fx:id="txtContato" maxWidth="Infinity"/>
+
+                <Label text="E-mail"/>
+                <TextField fx:id="txtEmail" maxWidth="Infinity"/>
+
+                <Label text="Telefone"/>
+                <TextField fx:id="txtTelefone" maxWidth="Infinity"/>
+
+                <Label text="Endereço"/>
+                <TextField fx:id="txtEndereco" maxWidth="Infinity"/>
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnSalvar" text="Salvar" onAction="#handleSalvar"/>
+                        <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

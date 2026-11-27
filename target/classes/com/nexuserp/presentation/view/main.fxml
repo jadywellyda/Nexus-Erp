@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.MainController">
+    <top>
+        <VBox styleClass="topo">
+            <children>
+                <Label text="NexusERP" styleClass="tituloApp"/>
+                <HBox alignment="CENTER_RIGHT" spacing="20">
+                    <children>
+                        <Label fx:id="lblUsuario" text="Usuário: -"/>
+                        <Label fx:id="lblPerfil" text="Perfil: -"/>
+                        <Button text="Sair" onAction="#logout"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="15">
+            <children>
+                <Button text="Dashboard" onAction="#abrirDashboard" maxWidth="260"/>
+                <Button text="Cadastro de Produto" onAction="#abrirCadastroProduto" maxWidth="260"/>
+                <Button text="Cadastro de Usuário" onAction="#abrirCadastroUsuario" maxWidth="260"/>
+                <Button text="Cadastro de Cliente" onAction="#abrirCadastroCliente" maxWidth="260"/>
+                <Button text="Cadastro de Fornecedor" onAction="#abrirCadastroFornecedor" maxWidth="260"/>
+                <Button text="Vendas" onAction="#abrirVendas" maxWidth="260"/>
+                <Button text="Compras" onAction="#abrirCompras" maxWidth="260"/>
+                <Button text="Estoque" onAction="#abrirEstoque" maxWidth="260"/>
+                <Button text="Financeiro" onAction="#abrirFinanceiro" maxWidth="260"/>
+                <Button text="Relatórios" onAction="#abrirRelatorios" maxWidth="260"/>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.TelaRelatoriosController">
+    <top>
+        <Label text="Relatórios" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <VBox spacing="20" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+            <children>
+                <Label text="Relatório de Vendas por Período" styleClass="rotulo"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <children>
+                        <Label text="Data Inicial"/>
+                        <DatePicker fx:id="dtInicio" GridPane.columnIndex="1"/>
+
+                        <Label text="Data Final" GridPane.rowIndex="1"/>
+                        <DatePicker fx:id="dtFim" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnGerarPDF" text="Gerar Relatório PDF" onAction="#handleGerarPDF"/>
+                        <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                    </children>
+                </HBox>
+
+                <VBox spacing="5">
+                    <children>
+                        <Label text="O PDF conterá: número da venda, cliente, data, usuário e valor total."/>
+                        <Label text="Ao final, será exibido o faturamento total do período."/>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

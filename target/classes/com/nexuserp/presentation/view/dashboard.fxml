@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.DashboardController">
+    <top>
+        <Label text="Dashboard" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <GridPane hgap="30" vgap="30" alignment="CENTER">
+            <padding>
+                <Insets top="60" right="40" bottom="40" left="40"/>
+            </padding>
+            <children>
+                <VBox alignment="CENTER">
+                    <children>
+                        <Label text="Vendas Hoje" styleClass="rotulo"/>
+                        <Label fx:id="lblTotalVendasHoje" text="0" styleClass="valor"/>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" GridPane.columnIndex="1">
+                    <children>
+                        <Label text="Produtos com Baixo Estoque" styleClass="rotulo"/>
+                        <Label fx:id="lblProdutosBaixoEstoque" text="0" styleClass="valor"/>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" GridPane.columnIndex="2">
+                    <children>
+                        <Label text="Faturamento do Mês" styleClass="rotulo"/>
+                        <Label fx:id="lblFaturamentoMes" text="R$ 0,00" styleClass="valor"/>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER_RIGHT" styleClass="topo">
+            <children>
+                <Button text="Voltar ao Menu" onAction="#handleSair"/>
+            </children>
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="0"/>
+            </padding>
+        </VBox>
+    </bottom>
+</BorderPane>

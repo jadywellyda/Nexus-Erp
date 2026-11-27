@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nexuserp.presentation.controller.LoginController"
+      alignment="CENTER" spacing="20" styleClass="root">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+    <children>
+        <Text text="NexusERP" styleClass="titulo"/>
+        <Text text="Sistema Integrado de Gestão Empresarial" styleClass="subtitulo"/>
+
+        <VBox alignment="CENTER" spacing="15" maxWidth="350">
+            <children>
+                <Label text="E-mail"/>
+                <TextField fx:id="txtEmail" promptText="seu@email.com" maxWidth="Infinity"/>
+
+                <Label text="Senha"/>
+                <PasswordField fx:id="txtSenha" promptText="••••••••" maxWidth="Infinity"/>
+
+                <Button fx:id="btnLogin" text="Entrar" onAction="#handleLogin" maxWidth="Infinity"/>
+            </children>
+        </VBox>
+    </children>
+</VBox>

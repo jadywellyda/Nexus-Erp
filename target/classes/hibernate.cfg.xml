@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Conexão PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/nexuserp</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+
+        <!-- Dialeto -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Mostrar SQL no console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        -- Cria/atualiza esquema automaticamente (desativar em produção)
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Pool de conexões -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Entidades mapeadas -->
+        <mapping class="com.nexuserp.domain.Perfil"/>
+        <mapping class="com.nexuserp.domain.Usuario"/>
+        <mapping class="com.nexuserp.domain.Categoria"/>
+        <mapping class="com.nexuserp.domain.Cliente"/>
+        <mapping class="com.nexuserp.domain.Fornecedor"/>
+        <mapping class="com.nexuserp.domain.Produto"/>
+        <mapping class="com.nexuserp.domain.Venda"/>
+        <mapping class="com.nexuserp.domain.ItemVenda"/>
+        <mapping class="com.nexuserp.domain.Compra"/>
+        <mapping class="com.nexuserp.domain.ItemCompra"/>
+        <mapping class="com.nexuserp.domain.ContaReceber"/>
+        <mapping class="com.nexuserp.domain.ContaPagar"/>
+        <mapping class="com.nexuserp.domain.MovimentacaoEstoque"/>
+        <mapping class="com.nexuserp.domain.AuditoriaLog"/>
+    </session-factory>
+</hibernate-configuration>

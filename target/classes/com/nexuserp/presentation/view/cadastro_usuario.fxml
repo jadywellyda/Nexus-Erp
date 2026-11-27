@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.CadastroUsuarioController">
+    <top>
+        <Label text="Cadastro de Usuário" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <VBox spacing="15" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <children>
+                <Label text="Nome"/>
+                <TextField fx:id="txtNome" maxWidth="Infinity"/>
+
+                <Label text="E-mail"/>
+                <TextField fx:id="txtEmail" maxWidth="Infinity"/>
+
+                <Label text="Senha"/>
+                <PasswordField fx:id="txtSenha" maxWidth="Infinity"/>
+
+                <Label text="Perfil"/>
+                <ComboBox fx:id="cmbPerfil" maxWidth="Infinity"/>
+
+                <CheckBox fx:id="chkAtivo" text="Usuário ativo"/>
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnSalvar" text="Salvar" onAction="#handleSalvar"/>
+                        <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
