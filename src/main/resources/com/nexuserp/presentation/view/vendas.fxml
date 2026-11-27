@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.TelaVendasController">
+    <top>
+        <Label text="Vendas - Carrinho" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="15">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <children>
+                    <GridPane hgap="10" vgap="10">
+                        <children>
+                            <Label text="Cliente"/>
+                            <ComboBox fx:id="cmbCliente" GridPane.columnIndex="1"/>
+
+                            <Label text="Produto" GridPane.rowIndex="1"/>
+                            <ComboBox fx:id="cmbProduto" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Quantidade" GridPane.rowIndex="2"/>
+                            <TextField fx:id="txtQuantidade" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="1"/>
+
+                            <Button fx:id="btnAdicionar" text="Adicionar ao Carrinho"
+                                    onAction="#handleAdicionar" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                                    maxWidth="Infinity"/>
+                        </children>
+                    </GridPane>
+
+                    <Label text="Itens do Carrinho" styleClass="rotulo"/>
+
+                    <TableView fx:id="tabelaCarrinho">
+                        <columns>
+                            <TableColumn fx:id="colProduto" text="Produto" prefWidth="200"/>
+                            <TableColumn fx:id="colQuantidade" text="Qtd" prefWidth="80"/>
+                            <TableColumn fx:id="colPreco" text="Preço Unit." prefWidth="120"/>
+                            <TableColumn fx:id="colSubtotal" text="Subtotal" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10">
+                        <children>
+                            <Button fx:id="btnRemoverItem" text="Remover Item Selecionado"
+                                    onAction="#handleRemoverItem"/>
+                            <Label text="TOTAL:" styleClass="rotulo"/>
+                            <Label fx:id="lblTotal" text="R$ 0,00" styleClass="valor"/>
+                        </children>
+                    </HBox>
+
+                    <HBox spacing="10">
+                        <children>
+                            <Button fx:id="btnFinalizar" text="Finalizar Venda"
+                                    onAction="#handleFinalizar" maxWidth="Infinity"/>
+                            <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

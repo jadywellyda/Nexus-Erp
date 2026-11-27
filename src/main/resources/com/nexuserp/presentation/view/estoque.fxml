@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nexuserp.presentation.controller.TelaEstoqueController">
+    <top>
+        <Label text="Controle de Estoque" styleClass="tituloPagina"/>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="15">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <children>
+                    <Label text="Produtos em Estoque" styleClass="rotulo"/>
+
+                    <TableView fx:id="tabelaProdutos">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                            <TableColumn fx:id="colSku" text="SKU" prefWidth="100"/>
+                            <TableColumn fx:id="colNome" text="Nome" prefWidth="200"/>
+                            <TableColumn fx:id="colEstoqueAtual" text="Estoque Atual" prefWidth="120"/>
+                            <TableColumn fx:id="colEstoqueMinimo" text="Estoque Mínimo" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+
+                    <Button fx:id="btnAtualizar" text="Atualizar Lista" onAction="#handleAtualizar" maxWidth="Infinity"/>
+
+                    <Separator/>
+
+                    <Label text="Movimentação Manual" styleClass="rotulo"/>
+
+                    <GridPane hgap="10" vgap="10">
+                        <children>
+                            <Label text="Produto"/>
+                            <ComboBox fx:id="cmbProduto" GridPane.columnIndex="1"/>
+
+                            <Label text="Quantidade" GridPane.rowIndex="1"/>
+                            <TextField fx:id="txtQuantidade" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="1"/>
+
+                            <Label text="Referência (ex: NF 123)" GridPane.rowIndex="2"/>
+                            <TextField fx:id="txtReferencia" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Button fx:id="btnEntrada" text="REGISTRAR ENTRADA"
+                                    onAction="#handleEntrada" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                                    maxWidth="Infinity"/>
+                            <Button fx:id="btnSaida" text="REGISTRAR SAÍDA"
+                                    onAction="#handleSaida" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                                    maxWidth="Infinity"/>
+                        </children>
+                    </GridPane>
+
+                    <HBox spacing="10">
+                        <children>
+                            <Button fx:id="btnVoltar" text="Voltar" onAction="#handleVoltar"/>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
